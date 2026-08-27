@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wanting Jiang — Consumer Science | University of Wisconsin–Madison</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Nunito+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #FFFFFF;
+      --text: #1A1A1A;
+      --text-muted: #6B6B6B;
+      --accent: #4A4E69;
+      --accent-hover: #2E3147;
+      --rule: #D4D2CD;
+      --tag-bg: #F0EFE9;
+      --serif: 'Lora', Georgia, serif;
+      --sans: 'Nunito Sans', -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.75;
+      font-size: 16px;
+    }
+
+    /* ── Header ── */
+    header {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 3.5rem 2rem 0;
+    }
+
+    header h1 {
+      font-family: var(--serif);
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: var(--text);
+    }
+
+    header .tagline {
+      font-size: 1.05rem;
+      color: var(--accent);
+      font-weight: 400;
+      margin-top: 0.4rem;
+      font-family: var(--sans);
+    }
+
+    header nav {
+      margin-top: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 2px solid var(--text);
+      display: flex;
+      gap: 1.8rem;
+      flex-wrap: wrap;
+    }
+
+    header nav a {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+
+    header nav a:hover { color: var(--accent); }
+
+    /* ── Main Content ── */
+    main {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ── About ── */
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 200px;
+      gap: 2.5rem;
+      padding: 2.5rem 0;
+      align-items: start;
+    }
+
+    .about-text {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.85;
+    }
+
+    .about-text a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      transition: border-color 0.2s;
+    }
+
+    .about-text a:hover { border-bottom-color: var(--accent); }
+
+    .about-links {
+      margin-top: 1.3rem;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .about-links a {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+
+    .about-links a:hover { color: var(--accent-hover); }
+
+    .about-photo img {
+      width: 200px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 4px;
+      display: block;
+    }
+
+    .about-photo .placeholder {
+      width: 200px;
+      height: 250px;
+      background: var(--tag-bg);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    /* ── Sections ── */
+    .section {
+      padding: 2.5rem 0;
+      border-top: 1px solid var(--rule);
+    }
+
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 1.8rem;
+    }
+
+    /* ── Research ── */
+    .paper {
+      margin-bottom: 1.8rem;
+    }
+
+    .paper-title {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .paper-meta {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      background: var(--tag-bg);
+      padding: 0.2rem 0.6rem;
+      border-radius: 3px;
+      margin-top: 0.4rem;
+    }
+
+    .paper-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+      max-width: 600px;
+      line-height: 1.75;
+    }
+
+    /* ── Teaching ── */
+    .teaching-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .teaching-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: baseline;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--tag-bg);
+    }
+
+    .teaching-row:last-child { border-bottom: none; }
+
+    .teaching-course {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .teaching-role {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    /* ── Contact ── */
+    .contact-row {
+      display: flex;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-item {
+      font-size: 0.9rem;
+    }
+
+    .contact-item .label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .contact-item a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .contact-item a:hover { text-decoration: underline; }
+
+    /* ── Footer ── */
+    footer {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 2rem;
+      border-top: 1px solid var(--rule);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      header h1 { font-size: 2.2rem; }
+      .about { grid-template-columns: 1fr; }
+      .about-photo { order: -1; }
+      .about-photo .placeholder, .about-photo img { width: 160px; height: 200px; }
+      .teaching-row { grid-template-columns: 1fr; gap: 0.2rem; }
+      .teaching-role { text-align: left; }
+      .contact-row { flex-direction: column; gap: 1.2rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Wanting Jiang</h1>
+    <div class="tagline">PhD Candidate in Consumer Science, University of Wisconsin&ndash;Madison</div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#contact">Contact</a>
+      <a href="CV_Wanting_Jiang.pdf" target="_blank">CV</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- About -->
+    <div class="about" id="about">
+      <div>
+        <div class="about-text">
+          I am a PhD candidate in the <a href="https://sohe.wisc.edu/" target="_blank">School of Human Ecology</a>
+          at the University of Wisconsin&ndash;Madison, specializing in consumer behavior and family economics.
+          My research examines how place-based spatial factors, such as broadband infrastructure
+          and population migration, shape household financial decision-making and access to financial services.
+          I am on the 2026&ndash;27 academic job market.
+        </div>
+        <div class="about-links">
+          <a href="CV_Wanting_Jiang.pdf" target="_blank">Download CV &darr;</a>
+          <a href="mailto:wjiang96@wisc.edu">Email &rarr;</a>
+        </div>
+      </div>
+      <div class="about-photo">
+        <img src="headshot.jpg" alt="Wanting Jiang">
+      </div>
+    </div>
+
+    <!-- Research -->
+    <div class="section" id="research">
+      <div class="section-label">Research</div>
+
+      <div class="paper">
+        <div class="paper-title">Immigration and Financial Inclusion</div>
+        <div class="paper-meta">R&amp;R &middot; Journal of Consumer Policy</div>
+        <p class="paper-desc">
+          This paper investigates how immigration-related factors, including citizenship status,
+          generational status, age at arrival, and ethnic enclave concentration, predict
+          unbanked status and alternative financial service use among U.S. households.
+        </p>
+      </div>
+    </div>
+
+    <!-- Teaching -->
+    <div class="section" id="teaching">
+      <div class="section-label">Teaching</div>
+      <div class="teaching-list">
+        <div class="teaching-row">
+          <div class="teaching-course">CBFE Summer Skills Camp</div>
+          <div class="teaching-role">Lecturer &middot; Summer 2024&ndash;2025</div>
+        </div>
+        <div class="teaching-row">
+          <div class="teaching-course">CNSR SCI 627: Advanced Consumer Finance (Online)</div>
+          <div class="teaching-role">Lecturer &middot; Fall 2022</div>
+        </div>
+        <div class="teaching-row">
+          <div class="teaching-course">CNSR SCI 675: Family Financial Counseling</div>
+          <div class="teaching-role">Teaching Assistant</div>
+        </div>
+        <div class="teaching-row">
+          <div class="teaching-course">CNSR SCI 301: Consumer Analytics</div>
+          <div class="teaching-role">Teaching Assistant</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="section" id="contact">
+      <div class="section-label">Contact</div>
+      <div class="contact-row">
+        <div class="contact-item">
+          <div class="label">Email</div>
+          <a href="mailto:wjiang96@wisc.edu">wjiang96@wisc.edu</a>
+        </div>
+        <div class="contact-item">
+          <div class="label">Office</div>
+          School of Human Ecology<br>
+          University of Wisconsin&ndash;Madison<br>
+          Madison, WI 53706
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2026 Wanting Jiang
+  </footer>
+
+</body>
+</html>
