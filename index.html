@@ -194,6 +194,72 @@
       line-height: 1.75;
     }
 
+    .subsection-label {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--text-muted);
+      margin: 0.4rem 0 1.2rem;
+    }
+
+    .subsection-label + .paper { margin-top: 0; }
+
+    .paper-list + .subsection-label { margin-top: 2.2rem; }
+
+    .paper-coauthor {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 0.15rem;
+    }
+
+    .paper.in-progress { margin-bottom: 1.2rem; }
+
+    .paper-presented {
+      font-size: 0.85rem;
+      font-style: italic;
+      color: var(--text-muted);
+      margin-top: 0.35rem;
+    }
+
+    /* ── Expandable abstract ── */
+    .abstract {
+      margin-top: 0.6rem;
+    }
+
+    .abstract summary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      cursor: pointer;
+      list-style: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent);
+      user-select: none;
+    }
+
+    .abstract summary::-webkit-details-marker { display: none; }
+
+    .abstract summary::before {
+      content: "\25B8";
+      display: inline-block;
+      transition: transform 0.2s ease;
+    }
+
+    .abstract[open] summary::before {
+      transform: rotate(90deg);
+    }
+
+    .abstract summary:hover {
+      color: var(--accent-hover);
+    }
+
+    .abstract summary:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
     /* ── Teaching ── */
     .teaching-list {
       display: flex;
@@ -223,6 +289,21 @@
       color: var(--text-muted);
       text-align: right;
       white-space: nowrap;
+    }
+
+    .teaching-desc {
+      grid-column: 1 / -1;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      max-width: 620px;
+      margin-top: -0.35rem;
+    }
+
+    @media (max-width: 600px) {
+      .teaching-row { grid-template-columns: 1fr; gap: 0.3rem; }
+      .teaching-role { text-align: left; white-space: normal; }
+      .teaching-desc { margin-top: 0.1rem; }
     }
 
     /* ── Contact ── */
@@ -315,14 +396,52 @@
     <div class="section" id="research">
       <div class="section-label">Research</div>
 
-      <div class="paper">
-        <div class="paper-title">Immigration and Financial Inclusion</div>
-        <div class="paper-meta">R&amp;R &middot; Journal of Consumer Policy</div>
-        <p class="paper-desc">
-          This paper investigates how immigration-related factors, including citizenship status,
-          generational status, age at arrival, and ethnic enclave concentration, predict
-          unbanked status and alternative financial service use among U.S. households.
-        </p>
+      <div class="subsection-label">Working Papers</div>
+      <div class="paper-list">
+        <div class="paper">
+          <div class="paper-title">Financial Engagement Behaviors of Immigrant Populations</div>
+          <div class="paper-meta">R&amp;R &middot; Journal of Consumer Policy</div>
+          <div class="paper-presented">Presented at ACCI, PAA</div>
+          <details class="abstract">
+            <summary>Abstract</summary>
+            <p class="paper-desc">
+              Understanding immigrants' financial engagement is key to addressing structural barriers
+              to financial inclusion. This study provides a descriptive account of how being unbanked
+              and the use of credit, domestic transactional, and international remittance alternative
+              financial services (AFS) vary with citizenship status and co-ethnic enclave concentration.
+              Immigrants' AFS use reflects two distinct needs: cross-border ties to home countries and
+              domestic needs within the U.S. Non-citizens exhibit higher unbanked rates and greater use
+              of remittance AFS, with no corresponding increase in credit or domestic transactional AFS
+              use. Instrumental variable estimates using 1990 settlement shares suggest that immigrants
+              in areas with higher country-of-origin enclave concentration are more likely to be
+              unbanked and, among non-citizens, to use domestic credit and transactional AFS, whereas
+              remittance use does not vary with enclave residence. These findings offer a descriptive
+              framework for understanding immigrant financial engagement, with implications for
+              consumer policy on cross-border financial services.
+            </p>
+          </details>
+        </div>
+
+        <div class="paper">
+          <div class="paper-title">Enclaves as Buffers or Amplifiers? Immigrant Communities and the Chilling Effect of Welfare Policy</div>
+          <div class="paper-meta">Manuscript in preparation</div>
+          <div class="paper-presented">Presented at ACCI, APPAM</div>
+        </div>
+      </div>
+
+      <div class="subsection-label">Research in Progress</div>
+      <div class="paper-list">
+        <div class="paper in-progress">
+          <div class="paper-title">From Branches to Broadband: Role of Internet Availability and Digital Financial Exclusion</div>
+        </div>
+        <div class="paper in-progress">
+          <div class="paper-title">Medicaid Work Requirements and the Digital Divide: Evidence from the Affordable Connectivity Program</div>
+          <div class="paper-coauthor">with Katie Fitzpatrick</div>
+        </div>
+        <div class="paper in-progress">
+          <div class="paper-title">Too Healthy to Afford: Local Food Stocking Mandates and Household Food Spending</div>
+          <div class="paper-coauthor">with Sangyu Qian</div>
+        </div>
       </div>
     </div>
 
@@ -332,19 +451,23 @@
       <div class="teaching-list">
         <div class="teaching-row">
           <div class="teaching-course">CBFE Summer Skills Camp</div>
-          <div class="teaching-role">Lecturer &middot; Summer 2024&ndash;2025</div>
+          <div class="teaching-role">Instructor of Record &middot; Summer 2025, 2026</div>
+          <p class="teaching-desc">Microeconomics, statistics, and math refresher for incoming Ph.D. students. Designed content, problem sets, and assessments.</p>
         </div>
         <div class="teaching-row">
           <div class="teaching-course">CNSR SCI 627: Advanced Consumer Finance (Online)</div>
-          <div class="teaching-role">Lecturer &middot; Fall 2022</div>
-        </div>
-        <div class="teaching-row">
-          <div class="teaching-course">CNSR SCI 675: Family Financial Counseling</div>
-          <div class="teaching-role">Teaching Assistant</div>
+          <div class="teaching-role">Instructor of Record &middot; Fall 2022</div>
+          <p class="teaching-desc">Financial markets and instruments from the perspective of individual consumers, focusing on portfolio decisions over the life cycle.</p>
         </div>
         <div class="teaching-row">
           <div class="teaching-course">CNSR SCI 301: Consumer Analytics</div>
-          <div class="teaching-role">Teaching Assistant</div>
+          <div class="teaching-role">Teaching Assistant &middot; Fall 2026</div>
+          <p class="teaching-desc">Data analysis for consumer and business decisions, emphasizing evidence-based communication of analytical results.</p>
+        </div>
+        <div class="teaching-row">
+          <div class="teaching-course">CNSR SCI 675: Family Financial Counseling</div>
+          <div class="teaching-role">Teaching Assistant &middot; Spring 2023</div>
+          <p class="teaching-desc">Systems approach to family financial management, with emphasis on interpersonal counseling techniques for practitioners.</p>
         </div>
       </div>
     </div>
